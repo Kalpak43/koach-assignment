@@ -19,7 +19,7 @@ function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.3]);
 
   return (
-    <motion.div className="relative min-h-screen bg-gradient-to-br from-slate-100 dark:from-slate-900/10 via-white dark:via-neutral-950 to-blue-50 dark:to-blue-900/10 overflow-y-hidden">
+    <motion.div className="relative min-h-screen bg-gradient-to-br from-slate-100 dark:from-slate-900/10 via-white dark:via-neutral-950 to-primary/10 dark:to-blue-900/10 overflow-y-hidden">
       <div className="absolute -bottom-30 lg:-bottom-50 left-0 w-[300px] lg:w-[600px] h-[300px] lg:h-[600px]">
         <FloatingPaths position={1} />
         <FloatingPaths position={-1} />
@@ -31,13 +31,13 @@ function HeroSection() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 0.1, scale: 1 }}
               transition={{ duration: 2, ease: "easeOut" }}
-              className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500 dark:bg-blue-800 rounded-full blur-3xl"
+              className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary dark:bg-blue-800 rounded-full blur-3xl"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 0.05, scale: 1 }}
               transition={{ duration: 2, delay: 0.5, ease: "easeOut" }}
-              className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500 dark:bg-purple-800 rounded-full blur-3xl"
+              className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-500 dark:bg-purple-800 rounded-full blur-3xl"
             />
           </div>
 
