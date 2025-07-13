@@ -63,7 +63,7 @@ function HeroSection() {
                   transition: { duration: 0.8, ease: "easeOut" },
                 },
               }}
-              className="text-4xl lg:text-6xl leading-snug font-[600] bg-gradient-to-r from-gray-500 via-slate-900 to-slate-700 text-transparent bg-clip-text"
+              className="text-3xl md:text-6xl leading-snug font-[600] bg-gradient-to-r from-gray-500 via-slate-900 to-slate-700 text-transparent bg-clip-text"
             >
               CONTACT US
             </motion.h1>
@@ -79,11 +79,10 @@ function HeroSection() {
               }}
               className="max-w-3xl mx-auto"
             >
-              We’d love to hear from you — whether you're a startup ready to
+              We'd love to hear from you — whether you're a startup ready to
               scale globally, a mentor looking to give back, or a partner who
               believes in the power of cross-border innovation.
             </motion.p>
-            {/* <Button size="lg">Click me</Button> */}
           </motion.div>
 
           {/* Scroll Indicator */}

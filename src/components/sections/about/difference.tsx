@@ -46,7 +46,6 @@ function Difference() {
         </h2>
       </motion.div>
 
-      {/* Grid Wrapper with Staggering */}
       < div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {reasons.map((reason, index) => (
           <motion.div
@@ -59,7 +58,7 @@ function Difference() {
           >
             <reason.icon className="size-12 flex-shrink-0 text-primary" />
             <div className="space-y-2">
-              <h3 className="text-xl font-[600]">{reason.title}</h3>
+              <h3 className="text-xl font-[600] lg:max-xl:min-h-[3.5rem]">{reason.title}</h3>
               <p className="flex-1">{reason.description}</p>
             </div>
             <Grid />

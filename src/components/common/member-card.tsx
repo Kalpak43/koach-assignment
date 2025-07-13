@@ -22,7 +22,7 @@ function MemberCard({
   return (
     <div
       key={name}
-      className="aspect-[3/4] lg:aspect-[6/7] bg-gray-400 rounded-lg overflow-hidden relative z-10 group border border-primary"
+      className="aspect-[3/4] xl:aspect-[6/7] bg-gray-400 rounded-lg overflow-hidden relative z-10 group border border-primary"
     >
       <Image
         src={image}

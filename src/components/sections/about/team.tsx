@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import MemberCard from "@/components/common/member-card";
 import Container from "@/components/ui/container";
 import React from "react";
+import { cn } from "@/lib/utils";
 
 const teamMembers = [
   {
@@ -48,7 +49,7 @@ function Team() {
         </h2>
       </motion.div>
 
-      <motion.div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <motion.div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         {teamMembers.map((member, index) => (
           <motion.div
             key={member.name}
@@ -56,6 +57,11 @@ function Team() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: index * 0.1 }}
             viewport={{ once: true, amount: 0.2 }}
+            className={cn(
+              index === teamMembers.length - 1 && teamMembers.length % 2 === 1
+                ? "md:max-xl:col-span-2 md:max-xl:mx-auto"
+                : ""
+            )}
           >
             <MemberCard {...member} />
           </motion.div>

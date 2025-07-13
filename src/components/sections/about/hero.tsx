@@ -64,7 +64,7 @@ function HeroSection() {
                   transition: { duration: 0.8, ease: "easeOut" },
                 },
               }}
-              className="text-4xl lg:text-6xl leading-snug font-[600] bg-gradient-to-r from-gray-500 via-slate-900 to-slate-700 text-transparent bg-clip-text"
+              className="text-3xl md:text-6xl leading-snug font-[600] bg-gradient-to-r from-gray-500 via-slate-900 to-slate-700 text-transparent bg-clip-text"
             >
               About Nucleus Accelerator
             </motion.h1>
@@ -83,7 +83,6 @@ function HeroSection() {
               Empowering startups worldwide with the expertise, connections, and
               guidance needed to scale globally and make a meaningful impact.
             </motion.p>
-            {/* <Button size="lg">Click me</Button> */}
           </motion.div>
 
           {/* Scroll Indicator */}

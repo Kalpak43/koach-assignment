@@ -66,7 +66,7 @@ function ContactForm() {
             </h2>
           </motion.div>
 
-          <div className="lg:h-full lg:w-full max-md:aspect-video max-md:rounded-lg overflow-hidden">
+          <div className="lg:h-full lg:w-full max-lg:aspect-video max-md:rounded-lg overflow-hidden">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.191961731196!2d72.83730575081945!3d19.05529583093355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c93cfdbad187%3A0x3ca7c56b992a8dbc!2sS.V.%20Road%2C%20Bandra%20West%2C%20Mumbai%2C%20Maharashtra%20400050!5e0!3m2!1sen!2sin!4v1752330850798!5m2!1sen!2sin"
               style={{ border: 0 }}

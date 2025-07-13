@@ -47,7 +47,7 @@ function Advisor() {
         </h2>
       </motion.div>
 
-      <motion.div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <motion.div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
         {advisoryBoard.map((advisor, index) => (
           <motion.div
             key={advisor.name}
