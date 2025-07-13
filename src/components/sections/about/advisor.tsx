@@ -35,37 +35,27 @@ const fadeUp = {
 function Advisor() {
   return (
     <Container className="space-y-8">
-      {/* Animated Heading */}
       <motion.div
         className="space-y-4"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={fadeUp}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
       >
         <h2 className="text-3xl lg:text-4xl font-[500] font-serif">
           Advisory Board
         </h2>
       </motion.div>
 
-      {/* Animated Grid */}
-      <motion.div
-        className="grid grid-cols-1 lg:grid-cols-4 gap-4"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={{
-          hidden: {},
-          visible: {
-            transition: {
-              staggerChildren: 0.15,
-            },
-          },
-        }}
-      >
-        {advisoryBoard.map((advisor) => (
-          <motion.div key={advisor.name} variants={fadeUp}>
+      <motion.div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        {advisoryBoard.map((advisor, index) => (
+          <motion.div
+            key={advisor.name}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
+            viewport={{ once: true, amount: 0.2 }}
+          >
             <AdvisorCard {...advisor} />
           </motion.div>
         ))}

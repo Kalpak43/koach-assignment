@@ -12,7 +12,7 @@ const fadeIn = {
 export default function Footer() {
   return (
     <motion.footer
-      className="bg-white py-8 text-center border-t border-gray-200"
+      className="bg-white py-8 text-center border-t border-gray-200 mt-8"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}

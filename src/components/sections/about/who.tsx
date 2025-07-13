@@ -12,38 +12,45 @@ const fadeInUp = {
 function Who() {
   return (
     <Container className="grid grid-cols-1 lg:grid-cols-2 place-items-center gap-8">
-      {/* Left: Text Block */}
       <motion.div
         className="space-y-4"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ staggerChildren: 0.2 }}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
       >
-        <motion.h2
-          className="text-3xl lg:text-4xl font-[500] font-serif"
-          variants={fadeInUp}
-        >
+        <h2 className="text-3xl lg:text-4xl font-[500] font-serif">
           Who We Are
-        </motion.h2>
-
-        <motion.div className="space-y-4" variants={fadeInUp}>
-          <p>
+        </h2>
+        <motion.div
+          className="space-y-4"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+          staggerChildren: 0.15,
+              },
+            },
+          }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <motion.p variants={fadeInUp}>
             At Nucleus Accelerator, we believe great ideas deserve a global
             stage. We are a passionate team dedicated to helping startups not
             just dream big but expand boldly into the world's most dynamic
             markets.
-          </p>
-          <p>
+          </motion.p>
+          <motion.p variants={fadeInUp}>
             Our mission is to bridge the gap between visionary founders and the
             corporate expertise, cultural understanding, and strategic guidance
             they need to thrive internationally. We don't just mentor — we walk
             alongside you, unlocking doors and smoothing the path to growth.
-          </p>
+          </motion.p>
         </motion.div>
       </motion.div>
 
-      {/* Right: Image */}
       <motion.div
         className="w-full h-full bg-gray-600 rounded-lg overflow-hidden shadow-md"
         initial={{ opacity: 0, scale: 0.95 }}

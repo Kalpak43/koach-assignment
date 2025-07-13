@@ -7,14 +7,11 @@ import FloatingPaths from "@/components/floating-paths";
 
 function HeroSection() {
   const ref = useRef(null);
-
-  // Track scroll within the hero section
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end start"], // start when top hits top, end when bottom hits top
+    offset: ["start start", "end start"], 
   });
 
-  // Scale from 1 to 0.8 as it scrolls out of view
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.3]);
 
@@ -51,7 +48,7 @@ function HeroSection() {
                 transition: {
                   duration: 0.1,
                   staggerChildren: 0.5,
-                  delayChildren: 1, // overall delay before children start animating
+                  delayChildren: 0.5, // overall delay before children start animating
                 },
               },
             }}
@@ -94,7 +91,7 @@ function HeroSection() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 3 }}
+            transition={{ duration: 1, delay: 2.5 }}
             className=""
           >
             <motion.div
@@ -127,7 +124,7 @@ function HeroSection() {
               show: {
                 opacity: 1,
                 y: 0,
-                transition: { duration: 0.8, ease: "easeOut", delay: 2 },
+                transition: { duration: 0.8, ease: "easeOut", delay: 1.5 },
               },
             }}
             className="absolute bottom-0 right-0 m-4 bg-white py-1 px-2 border border-[#fbc41a20] rounded-sm shadow-[0px_0px_2px_rgba(251,196,26,0.3),0px_0px_6px_rgb(251,196,26,0.1)]"
