@@ -47,7 +47,7 @@ function HeroSection() {
                 transition: {
                   duration: 0.1,
                   staggerChildren: 0.5,
-                  delayChildren: 1, // overall delay before children start animating
+                  delayChildren: 0.5, // overall delay before children start animating
                 },
               },
             }}
@@ -90,7 +90,7 @@ function HeroSection() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 3 }}
+            transition={{ duration: 1, delay: 2 }}
             className=""
           >
             <motion.div

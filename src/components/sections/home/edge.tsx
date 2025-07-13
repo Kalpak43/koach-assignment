@@ -1,5 +1,5 @@
 "use client";
-
+import { motion } from "motion/react";
 import Container from "@/components/ui/container";
 import React from "react";
 import { Heart, Network, Cog, Layers } from "lucide-react";
@@ -41,16 +41,26 @@ const edges = [
 function Edge() {
   return (
     <Container className="space-y-8">
-      <div className="space-y-4">
+      <motion.div
+        className="space-y-4"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <h2 className="text-3xl lg:text-4xl font-[500] font-serif">Our Edge</h2>
-      </div>
+      </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        {edges.map((edge) => {
+        {edges.map((edge, index) => {
           return (
-            <div
+            <motion.div
               key={edge.title}
               className="h-full p-4 border border-[#80828280] rounded-md flex flex-col gap-4 relative z-10"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              viewport={{ once: true, amount: 0.2 }}
             >
               <edge.icon className="size-12 flex-shrink-0 text-primary" />
               <div className="space-y-2">
@@ -58,7 +68,7 @@ function Edge() {
                 <p className="flex-1">{edge.description}</p>
               </div>
               <Grid />
-            </div>
+            </motion.div>
           );
         })}
       </div>

@@ -1,5 +1,5 @@
 "use client";
-
+import { motion } from "motion/react";
 import Container from "@/components/ui/container";
 import React from "react";
 import { ExternalLink, Target, Zap } from "lucide-react";
@@ -31,19 +31,48 @@ const reasons = [
   },
 ];
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
+};
+
 function Difference() {
   return (
     <Container className="space-y-8">
-      <div className="space-y-4">
+      {/* Heading */}
+      <motion.div
+        className="space-y-4"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeUp}
+        transition={{ duration: 0.6 }}
+      >
         <h2 className="text-3xl lg:text-4xl font-[500] font-serif">
           What Makes Us Different?
         </h2>
-      </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      </motion.div>
+
+      {/* Grid Wrapper with Staggering */}
+      <motion.div
+        className="grid grid-cols-1 lg:grid-cols-3 gap-4"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              staggerChildren: 0.15,
+            },
+          },
+        }}
+      >
         {reasons.map((reason) => (
-          <div
+          <motion.div
             key={reason.title}
             className="h-full p-4 border border-[#80828280] rounded-md flex flex-col items-center text-center gap-4 relative z-10"
+            variants={fadeUp}
           >
             <reason.icon className="size-12 flex-shrink-0 text-primary" />
             <div className="space-y-2">
@@ -51,9 +80,9 @@ function Difference() {
               <p className="flex-1">{reason.description}</p>
             </div>
             <Grid />
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </Container>
   );
 }

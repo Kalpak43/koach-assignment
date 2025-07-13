@@ -14,14 +14,18 @@ const criteria = [
 function WorkWith() {
   return (
     <Container className="space-y-8">
-      <div className="space-y-4">
+      <motion.div
+        className="space-y-4"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <h2 className="text-3xl lg:text-4xl font-[500] font-serif">
           Who We Work With
         </h2>
-        <p className="text-lg text-gray-700 leading-relaxed">
-          We work with startups who are:
-        </p>
-      </div>
+        <p>We work with startups who are: </p>
+      </motion.div>
 
       <div className="space-y-4">
         {criteria.map((criterion, index) => (
@@ -29,7 +33,7 @@ function WorkWith() {
             key={index}
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
+            transition={{ duration: 0.6, delay: (index + 1) * 0.1 }}
             viewport={{ once: true }}
             className="flex items-start gap-4"
           >
@@ -44,7 +48,7 @@ function WorkWith() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
+        transition={{ duration: 0.6, delay: 0.4  }}
         viewport={{ once: true }}
         className="pt-4 border-t border-gray-200"
       >

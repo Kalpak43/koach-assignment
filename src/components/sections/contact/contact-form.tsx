@@ -1,6 +1,6 @@
 "use client";
 
-import Grid from "@/components/grid";
+import { motion } from "motion/react";
 import Container from "@/components/ui/container";
 import React from "react";
 import { useState } from "react";
@@ -35,8 +35,27 @@ interface FormTouched {
 function ContactForm() {
   return (
     <Container className="space-y-8">
-      <div className="grid grid-cols-1 lg:grid-cols-2 border rounded-lg relative z-10 overflow-hidden">
-        <div className="">
+      <motion.div
+        className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:border rounded-lg relative z-10 overflow-hidden"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              staggerChildren: 0.2,
+            },
+          },
+        }}
+      >
+        {/* Map */}
+        <motion.div
+          className="max-md:order-2 max-md:aspect-video max-md:rounded-lg overflow-hidden"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.191961731196!2d72.83730575081945!3d19.05529583093355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c93cfdbad187%3A0x3ca7c56b992a8dbc!2sS.V.%20Road%2C%20Bandra%20West%2C%20Mumbai%2C%20Maharashtra%20400050!5e0!3m2!1sen!2sin!4v1752330850798!5m2!1sen!2sin"
             style={{ border: 0 }}
@@ -45,16 +64,21 @@ function ContactForm() {
             referrerPolicy="no-referrer-when-downgrade"
             className="h-full w-full"
           />
-        </div>
-        <div className="p-8 space-y-6">
+        </motion.div>
+
+        {/* Form Block */}
+        <motion.div
+          className="lg:p-8 space-y-6 max-md:order-1"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           <h2 className="text-3xl lg:text-4xl font-[500] font-serif">
             Get in Touch
           </h2>
-
           <Form />
-        </div>
-        <Grid />
-      </div>
+        </motion.div>
+      </motion.div>
     </Container>
   );
 }

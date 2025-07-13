@@ -48,12 +48,12 @@ function Navbar() {
         initial="hidden"
         animate="show"
       >
-        <div className="flex items-center gap-2">
+        <Link href={"/"} className="flex items-center gap-2">
           <Image src={"/logo.png"} alt="logo" width={30} height={30} />
           <p className="font-[600] text-[#808282] max-md:text-sm">
             Nucleus Accelerator
           </p>
-        </div>
+        </Link>
 
         <nav
           className={cn(
@@ -65,7 +65,7 @@ function Navbar() {
               <Link
                 href={l.link}
                 className={cn(
-                  "capitalize",
+                  "capitalize transition-all duration-500",
                   pathname == l.link && "text-primary"
                 )}
               >

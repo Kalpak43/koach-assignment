@@ -121,3 +121,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+@media (hover: hover) {
+  .member-card {
+    max-height: 0;
+  }
+
+}

@@ -1,5 +1,5 @@
 "use client";
-
+import { motion } from "motion/react";
 import Container from "@/components/ui/container";
 import React from "react";
 import {
@@ -69,8 +69,15 @@ function Work() {
   const startAutoplay = React.useCallback(() => {
     if (api) {
       intervalRef.current = setInterval(() => {
-        api.scrollNext();
-      }, 3000); // Auto-advance every 3 seconds
+        const selected = api.selectedScrollSnap();
+        const lastIndex = api.scrollSnapList().length - 1;
+
+        if (selected === lastIndex) {
+          api.scrollTo(0); // Go back to the first slide
+        } else {
+          api.scrollNext();
+        }
+      }, 3000);
     }
   }, [api]);
 
@@ -113,7 +120,13 @@ function Work() {
 
   return (
     <Container className="space-y-8">
-      <div className="space-y-4">
+      <motion.div
+        className="space-y-4"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <h2 className="text-3xl lg:text-4xl font-[500] font-serif">
           What We Do
         </h2>
@@ -122,7 +135,7 @@ function Work() {
           insiders, strategic advisors, and hands-on coaches who will walk with
           you through every stage of your international expansion journey.
         </p>
-      </div>
+      </motion.div>
 
       <div className="space-y-4">
         <Carousel
@@ -138,26 +151,28 @@ function Work() {
                 key={index}
                 className="pl-4 md:basis-1/2 lg:basis-1/3"
               >
-                <div className="p-1 h-full">
+                <motion.div
+                  className="p-1 h-full"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                >
                   <div className="p-4 border border-[#80828280] rounded-md flex flex-col gap-4 items-start relative z-10 h-full">
                     <service.icon className="size-8 flex-shrink-0 text-primary" />
                     <div className="space-y-2 flex-1">
                       <h3 className="text-xl font-[600] min-h-[3.5rem] flex items-start">
                         {service.title}
                       </h3>
-                      {/* Added min-h-[3.5rem] and flex items-center for consistent title height */}
                       <p>{service.description}</p>
                     </div>
-                    {/* The original Grid component was not defined, so it's omitted here. */}
-
                     <Grid />
                   </div>
-                </div>
+                </motion.div>
               </CarouselItem>
             ))}
           </CarouselContent>
 
-          {/* Controls div, now inside the Carousel component, positioned absolutely */}
           <div className="flex items-center justify-between mt-4 px-4">
             <div className="flex gap-2">
               {Array.from({ length: count / 2 + 3 - 1 }).map((_, index) => (
@@ -172,7 +187,6 @@ function Work() {
               ))}
             </div>
             <div className="flex gap-2">
-              {/* Override default absolute positioning for CarouselPrevious/Next */}
               <CarouselPrevious className="static translate-x-0 translate-y-0 left-auto right-auto top-auto" />
               <CarouselNext className="static translate-x-0 translate-y-0 left-auto right-auto top-auto" />
             </div>

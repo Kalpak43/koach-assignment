@@ -1,9 +1,7 @@
 "use client";
-import { Button } from "@/components/ui/button";
+import { motion } from "motion/react";
+import AdvisorCard from "@/components/advisor-card";
 import Container from "@/components/ui/container";
-import { Briefcase, Linkedin } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 
 const advisoryBoard = [
@@ -29,42 +27,49 @@ const advisoryBoard = [
   },
 ];
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
+};
+
 function Advisor() {
   return (
     <Container className="space-y-8">
-      <div className="space-y-4">
+      {/* Animated Heading */}
+      <motion.div
+        className="space-y-4"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeUp}
+        transition={{ duration: 0.6 }}
+      >
         <h2 className="text-3xl lg:text-4xl font-[500] font-serif">
           Advisory Board
         </h2>
-      </div>
+      </motion.div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
-        {advisoryBoard.map((member) => {
-          return (
-            <div
-              key={member.name}
-              className="aspect-[6/7] bg-gray-400 rounded-lg overflow-hidden relative z-10 group border border-primary"
-            >
-              <Image
-                src={member.image}
-                alt={member.name}
-                width={600}
-                height={800}
-                className="h-full w-full object-cover relative group-hover:scale-110 transition-all duration-500"
-              />
-
-              <div className="absolute inset-x-0 bottom-0  bg-primary h-fit lg:h-21 flex-1 backdrop-blur-md p-4 space-y-2">
-                <div>
-                  <h4 className="text-sm lg:text-base font-[600]">
-                    {member.name}
-                  </h4>
-                  <h5 className="text-xs">{member.title}</h5>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      {/* Animated Grid */}
+      <motion.div
+        className="grid grid-cols-1 lg:grid-cols-4 gap-4"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              staggerChildren: 0.15,
+            },
+          },
+        }}
+      >
+        {advisoryBoard.map((advisor) => (
+          <motion.div key={advisor.name} variants={fadeUp}>
+            <AdvisorCard {...advisor} />
+          </motion.div>
+        ))}
+      </motion.div>
     </Container>
   );
 }
