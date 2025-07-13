@@ -98,6 +98,7 @@ function Navbar() {
           >
             {links.map((l) => (
               <Link
+                key={l.name}
                 href={l.link}
                 className={cn(
                   "capitalize",

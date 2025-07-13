@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "motion/react";
-import MemberCard from "@/components/member-card";
+import MemberCard from "@/components/common/member-card";
 import Container from "@/components/ui/container";
 import React from "react";
 

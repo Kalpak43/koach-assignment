@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Container from "@/components/ui/container";
-import FloatingPaths from "@/components/floating-paths";
+import FloatingPaths from "@/components/common/floating-paths";
 
 function HeroSection() {
   const ref = useRef(null);

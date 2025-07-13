@@ -3,13 +3,13 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Container from "@/components/ui/container";
-import FloatingPaths from "@/components/floating-paths";
+import FloatingPaths from "@/components/common/floating-paths";
 
 function HeroSection() {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end start"], 
+    offset: ["start start", "end start"],
   });
 
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
@@ -17,10 +17,13 @@ function HeroSection() {
 
   return (
     <motion.div className="relative min-h-screen bg-gradient-to-br from-slate-100 dark:from-slate-900/10 via-white dark:via-neutral-950 to-primary/10 dark:to-blue-900/10 overflow-y-hidden">
+      {/* floating paths */}
       <div className="absolute -bottom-30 lg:-bottom-50 left-0 w-[300px] lg:w-[600px] h-[300px] lg:h-[600px]">
         <FloatingPaths position={1} />
         <FloatingPaths position={-1} />
       </div>
+
+      {/* main content */}
       <motion.div ref={ref} style={{ scale, opacity }}>
         <Container className="min-h-screen flex flex-col items-center justify-center gap-8 relative z-10">
           <div className="absolute inset-0 -z-1 overflow-hidden">
@@ -84,7 +87,6 @@ function HeroSection() {
               A hands-on, founder-first platform designed to help high-potential
               startups break into and scale across the global markets.
             </motion.p>
-            {/* <Button size="lg">Click me</Button> */}
           </motion.div>
 
           {/* Scroll Indicator */}

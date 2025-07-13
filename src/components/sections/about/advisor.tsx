@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "motion/react";
-import AdvisorCard from "@/components/advisor-card";
+import AdvisorCard from "@/components/common/advisor-card";
 import Container from "@/components/ui/container";
 import React from "react";
 

@@ -5,7 +5,7 @@ import React from "react";
 import { ExternalLink, Target, Zap } from "lucide-react";
 import dynamic from "next/dynamic";
 
-const Grid = dynamic(() => import("@/components/grid"), { ssr: false });
+const Grid = dynamic(() => import("@/components/common/grid"), { ssr: false });
 
 const reasons = [
   {

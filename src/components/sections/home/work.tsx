@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/carousel";
 import dynamic from "next/dynamic";
 
-const Grid = dynamic(() => import("@/components/grid"), { ssr: false });
+const Grid = dynamic(() => import("@/components/common/grid"), { ssr: false });
 
 const services = [
   {
@@ -73,7 +73,7 @@ function Work() {
         const lastIndex = api.scrollSnapList().length - 1;
 
         if (selected === lastIndex) {
-          api.scrollTo(0); // Go back to the first slide
+          api.scrollTo(0);
         } else {
           api.scrollNext();
         }
@@ -98,13 +98,11 @@ function Work() {
 
     api.on("select", () => {
       setCurrent(api.selectedScrollSnap() + 1);
-      // Restart autoplay on manual navigation
       stopAutoplay();
       startAutoplay();
     });
 
     api.on("reInit", () => {
-      // Re-initialize autoplay if carousel is re-initialized (e.g., window resize)
       stopAutoplay();
       startAutoplay();
     });
@@ -173,6 +171,7 @@ function Work() {
             ))}
           </CarouselContent>
 
+          {/* controls */}
           <div className="flex items-center justify-between mt-4 px-4">
             <div className="flex gap-2">
               {Array.from({ length: count / 2 + 3 - 1 }).map((_, index) => (
@@ -187,8 +186,8 @@ function Work() {
               ))}
             </div>
             <div className="flex gap-2">
-              <CarouselPrevious className="static translate-x-0 translate-y-0 left-auto right-auto top-auto" />
-              <CarouselNext className="static translate-x-0 translate-y-0 left-auto right-auto top-auto" />
+              <CarouselPrevious className="static translate-x-0 translate-y-0 left-auto right-auto top-auto cursor-pointer" />
+              <CarouselNext className="static translate-x-0 translate-y-0 left-auto right-auto top-auto cursor-pointer" />
             </div>
           </div>
         </Carousel>

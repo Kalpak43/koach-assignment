@@ -5,7 +5,7 @@ import React from "react";
 import { Heart, Network, Cog, Layers } from "lucide-react";
 import dynamic from "next/dynamic";
 
-const Grid = dynamic(() => import("@/components/grid"), { ssr: false });
+const Grid = dynamic(() => import("@/components/common/grid"), { ssr: false });
 
 const edges = [
   {
