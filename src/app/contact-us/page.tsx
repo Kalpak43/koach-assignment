@@ -10,7 +10,7 @@ function page() {
       <HeroSection />
       <Message />
       <ContactForm />
-      <Social />
+      {/* <Social /> */}
     </main>
   );
 }
