@@ -10,24 +10,21 @@ const Grid = dynamic(() => import("@/components/common/grid"), { ssr: false });
 const reasons = [
   {
     icon: ExternalLink,
-    title: "Founder-First, Not Fund-First",
+    title: "Real Connections",
     description:
-      "We're not chasing portfolios. We're building global operators.",
-    color: "from-red-500 to-pink-500",
+      "Work with former executives and industry leaders who open real doors, not just give advice.",
   },
   {
     icon: Target,
-    title: "Access to Real Corporate Insiders",
+    title: "Tailored Approach",
     description:
-      "Our network includes decision-makers, not just mentors. Think: former execs, procurement leads, GTM strategists.",
-    color: "from-blue-500 to-cyan-500",
+      "Tailored support built around your unique vision and growth journey.",
   },
   {
     icon: Zap,
-    title: "Execution Over Theory",
+    title: "Complete Ecosystem",
     description:
-      "We don't just advise — we help you build the roadmap and walk it with you.",
-    color: "from-green-500 to-emerald-500",
+      "From cultural coaching to sales, legal, and fundraising — everything you need to scale globally.",
   },
 ];
 
@@ -46,7 +43,7 @@ function Difference() {
         </h2>
       </motion.div>
 
-      < div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {reasons.map((reason, index) => (
           <motion.div
             key={reason.title}
@@ -58,13 +55,15 @@ function Difference() {
           >
             <reason.icon className="size-12 flex-shrink-0 text-primary" />
             <div className="space-y-2">
-              <h3 className="text-xl font-[600] lg:max-xl:min-h-[3.5rem]">{reason.title}</h3>
+              <h3 className="text-xl font-[600] lg:max-xl:min-h-[3.5rem]">
+                {reason.title}
+              </h3>
               <p className="flex-1">{reason.description}</p>
             </div>
             <Grid />
           </motion.div>
         ))}
-      </  div>
+      </div>
     </Container>
   );
 }

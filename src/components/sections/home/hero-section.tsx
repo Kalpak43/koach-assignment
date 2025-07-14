@@ -133,7 +133,7 @@ function HeroSection() {
           >
             <p className="text-sm">
               This is not just acceleration. It's{" "}
-              <span className="text-[#fbc41a]">activation</span> . It's
+              <span className="text-[#fbc41a]">activation</span>. It's
               <span className="text-[#fbc41a]"> expansion with precision</span>.
             </p>
           </motion.div>
